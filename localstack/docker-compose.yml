@@ -3,7 +3,7 @@ version: "3.8"
 services:
   localstack:
     container_name: localstack
-    image: localstack/localstack
+    image: localstack/localstack:1.4.0
     ports:
       - "0.0.0.0:4566:4566"            # LocalStack Gateway
       - "0.0.0.0:4510-4559:4510-4559"  # external services port range
@@ -21,12 +21,12 @@ services:
       context: .
     ports:
       - "5000:5000"
-  nginx:
-    image: nginx:latest
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-    depends_on:
-      - app
-    ports:
-      - "0.0.0.0:80:80"
+#  nginx:
+#    image: nginx:latest
+#    volumes:
+#      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+#    depends_on:
+#      - app
+#    ports:
+#      - "0.0.0.0:80:80"
 

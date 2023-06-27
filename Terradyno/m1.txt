@@ -4,11 +4,11 @@ resource "aws_s3_bucket" "bucket" {
 
 
 
-#data "archive_file" "lambda" {
-#  type        = "zip"
-#  source_file = "script.py"
-#  output_path = "script.zip"
-#}
+data "archive_file" "lambda" {
+  type        = "zip"
+  source_file = "script.py"
+  output_path = "script.zip"
+}
 
 
 
@@ -17,7 +17,7 @@ resource "aws_lambda_function" "script" {
   role = aws_iam_role.lambda_role.arn
   function_name = "script"
   handler       = "script.script"
-  runtime = "python3.8"
+  runtime = "python3.9"
 }
 
 #resource "aws_lambda_function_url" "function_url" {
