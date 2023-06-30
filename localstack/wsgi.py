@@ -14,6 +14,7 @@ def homepage():
 	return render_template('frontend.html')
 
 
+
 @app.route('/upload', methods = ["POST"])
 def upload_file():
 	f = request.files["file"]
